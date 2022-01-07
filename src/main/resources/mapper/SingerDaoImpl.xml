@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.MusicService.dao.SingerDao">
+<!--    编写映射集-->
+    <resultMap id="resultMap" type="Singer">
+        <id property="id" column="id"/>
+        <result property="name" column="singer_name"/>
+        <result property="sex" column="sex"/>
+        <result property="introduction" column="introduction"/>
+        <result property="photo" column="photos"/>
+    </resultMap>
+<!--    查询所有-->
+    <select id="selectAll" resultMap="resultMap">
+        select * from Singer
+    </select>
+<!--    根据name查询-->
+    <select id="selectByName" resultMap="resultMap">
+        select * from singer where singer_name=#{name}
+    </select>
+<!--    根据id删除-->
+    <delete id="deleteById" parameterType="int">
+        delete from Singer where id=#{id}
+    </delete>
+<!--    根据id修改-->
+    <update id="change" parameterType="com.MusicService.entity.Singer">
+        update singer set singer_name=#{name},sex=#{sex},introduction=#{introduction},photos=#{photo} where id=#{id}
+    </update>
+<!--    添加-->
+    <insert id="insertSinger" parameterType="com.MusicService.entity.Singer">
+        insert into singer value (#{id},#{name},#{sex},#{introduction},#{photo})
+    </insert>
+</mapper>
