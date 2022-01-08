@@ -25,16 +25,16 @@ class MusicServiceApplicationTests {
     void contextLoads() {
 //        boolean b = adminService.verification("xiaoai", "123456");
 //        System.out.println(b);
-        List<Singer> singers = singerService.selectAll();
-        for (Singer singer : singers) {
-            System.out.println(singer);
-        }
+//        List<Singer> singers = singerService.selectAll();
+//        for (Singer singer : singers) {
+//            System.out.println(singer);
+//        }
 //        Singer singer = singerService.selectByName("周杰伦");
 //        System.out.println(singer);
-//        Singer s=new Singer(null,"泠鸢",0,"bzhanUP",null);
-//        singerService.insertSinger(s);
-//        boolean b = singerService.deleteById(20);
-//        System.out.println(b);
+        Singer s=new Singer(null,"泠鸢",0,"bzhanUP",null);
+        singerService.insertSinger(s);
+        boolean b = singerService.deleteById(20);
+        System.out.println(b);
     }
 
 }
